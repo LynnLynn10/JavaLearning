@@ -1,18 +1,23 @@
+package java102;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Main {
-    static String intArrToString(int[] arr) {
-    String str = "(";
-    for (int i = 0; i < arr.length; i++) {
-        str += arr[i];
-        if (i != arr.length - 1) {
-            str += ", ";
+    
+    static <T> String arrayToString(T[] arr) {
+        String str = "[";
+        for (int j=0; j<arr.length-1; j++) {
+            str += arr[j] + ", ";
         }
-    }
-    return str + ")";
+        return str + arr[arr.length-1] + "]";
     }
     public static void main(String[] args) {
-        for(int d=1; d<11; d++) {
-            System.out.println(PracticeProblems.fib(d));
-        }
+        Grid<Integer> j = new Grid<>(20, 4);
+        Grid<Integer> a = new Grid<>(20, 4);
+        Grid<Integer> b = new Grid<>(3, 4);
+        System.out.println(Grid.maxSideLength());
+
     }
-    
 }
+
