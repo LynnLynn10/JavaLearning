@@ -9,11 +9,11 @@ public class Point {
         this.y = y;
     }
 
-    public Point TranslateX(double t) {
+    public Point translateX(double t) {
         return new Point(x+t, y);
     }
     
-    public Point TranslateY(double t) {
+    public Point translateY(double t) {
         return new Point(x, y+t);
     }
 
@@ -26,7 +26,7 @@ public class Point {
         return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
    }
 
-   public static Point centerofMass(Point[] points) {
+   public static Point centerOfMass(Point[] points) {
         double xval = 0;
         double yval = 0;
         for (Point p:points) {
@@ -49,5 +49,9 @@ public class Point {
         return new Point(a, b);        
     }
 
+    public static double findSlope(Point p1, Point p2) {
+        double slope = (double)((p1.y - p2.y)/(p1.x - p2.x));
+        return slope;
+    }
 
 }
