@@ -56,8 +56,13 @@ public class RightTriangle implements Shape {
     public boolean isInside(Point p) {
         double xDist = p.x - corner.x;
         double yDist = p.y - corner.y;
+        Point topCorner = new Point(corner.x, corner.y + side2);
+        Point bottomCorner = new Point(corner.x + side1, corner.y);
+        Line hypotenuse = new Line(Point.findSlope(topCorner, bottomCorner), side2);
+
         return 0 < yDist && yDist < side2 &&
-               0<xDist && xDist < side1; 
+               0<xDist && xDist < side1 &&
+               (p.y < hypotenuse.findY(p.x));
     }
 
     

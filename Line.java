@@ -23,6 +23,10 @@ public class Line {
         return new Line(slope, yinterc);
     }
 
+    public double findY(double x) {
+        return (x*slope) + yinterc; 
+    } 
+
 
 
 
