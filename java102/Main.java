@@ -6,11 +6,51 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(Point.distance(new Point(0, 0), new Point(2, 4)));
-        System.out.println(Point.distance(new Point(0, 0), new Point(4, 0)));   
-    
+        Book b1 = new Book("Harry Potter and the Chamber of Secrets", "A", "J.K.Rowling", 341);
+        Dvd d1 = new Dvd("IT", "B", 135);
+        Book b2 = new Book("The Art of War", "C", "Sun Tzu", 592);
+        LibraryItem[] items = {b1, d1, b2};
+        checkOutAll(items);
+        for (LibraryItem item: items) {
+            System.out.println(item.available());
+        }
+        
+        returnAll(items);
+        for (LibraryItem item: items) {
+            System.out.println(item.available());
+        }
+        d1.checkOut();
+        b1.checkOut();
+        System.out.println(availableItems(items));
+
+        
+
     
     }
+
+    public static void returnAll(LibraryItem[] items) {
+        for (LibraryItem item: items) {
+            item.returnItem();
+        }
+    }
+
+    public static ArrayList<LibraryItem> availableItems(LibraryItem[] items) {
+        ArrayList<LibraryItem> available = new ArrayList<>(3);
+        for (LibraryItem item:items) {
+            if (item.available()) {
+                available.add(item);
+            }
+        }
+        return available;
+    }
+
+    public static void checkOutAll(LibraryItem[] items) {
+        for (LibraryItem item: items) {
+            item.checkOut();
+        }
+    }
+
+
 
     public interface Shape {
         public double area();
