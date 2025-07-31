@@ -1,27 +1,15 @@
 package java102;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
-        Book b1 = new Book("Harry Potter and the Chamber of Secrets", "A", "J.K.Rowling", 341);
-        Dvd d1 = new Dvd("IT", "B", 135);
-        Book b2 = new Book("The Art of War", "C", "Sun Tzu", 592);
-        LibraryItem[] items = {b1, d1, b2};
-        checkOutAll(items);
-        for (LibraryItem item: items) {
-            System.out.println(item.available());
-        }
+        Point p = new Point(1, -1);
+        System.out.println(p.angle());
+    
         
-        returnAll(items);
-        for (LibraryItem item: items) {
-            System.out.println(item.available());
-        }
-        d1.checkOut();
-        b1.checkOut();
-        System.out.println(availableItems(items));
+        
 
         
 

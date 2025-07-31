@@ -37,13 +37,18 @@ public class Point {
     }
     static Point origin = new Point(0, 0);
     
-    public double angle(Point point) {
-        return Math.toDegrees(Math.asin((Math.abs(point.y))/distance(point, origin)));
+    public double angle() {
+        double angle = Math.toDegrees(Math.atan2(Math.abs(y), Math.abs(x)));
+        if(x<0) {
+            angle = 180 - angle;
+        }
+
+        return angle;
     }    
 
     public Point rotate(double theta) {
         theta = Math.toRadians(theta);
-        theta += Math.toRadians(angle(new Point(x, y)));
+        theta += Math.toRadians((new Point(x, y)).angle());
         double a = Math.cos(theta)*distance(new Point(x,y), origin);
         double b = Math.sin(theta)*distance(new Point(x,y), origin);
         return new Point(a, b);        
