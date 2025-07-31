@@ -1,6 +1,5 @@
 package java102;
 
-import java.util.ArrayList;
 
 import java102.Main.Shape;
 
